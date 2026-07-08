@@ -7,13 +7,18 @@
  *
  * @author AMARU
  */
-public class Estudiante implements Humano{
+public class Estudiante extends Persona {
     private int idEstudiante;
 
     public Estudiante() {
     }
 
     public Estudiante(int idEstudiante) {
+        this.idEstudiante = idEstudiante;
+    }
+
+    public Estudiante(int idEstudiante, String nombre, String apellido, int cedula, DIreccion direccion) {
+        super(nombre, apellido, cedula, direccion);
         this.idEstudiante = idEstudiante;
     }
 
@@ -27,12 +32,21 @@ public class Estudiante implements Humano{
 
     @Override
     public String toString() {
-        return "Estudiante{" + "idEstudiante=" + idEstudiante + '}';
+        return "----Estudiante----\n" +
+               "Nombres: " + getNombre() + "\n" +
+               "Apellidos: " + getApellido() + "\n" +
+               "Cédula: " + getCedula() + "\n" +
+               getDireccion();
     }
 
     @Override
     public void identificacion() {
-        System.out.println("Clses Estudiante");
+        System.out.println("Clase Estudiante");
     }
-    
 }
+        
+    
+
+    
+    
+
