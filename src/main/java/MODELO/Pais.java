@@ -10,10 +10,22 @@ package MODELO;
  * @author AMARU
  */
 public class Pais {
+    private int idPais;
     private String nombre;
     private String capital;
 
-    public Pais() {
+    public Pais(int idPais, String nombre, String capital) {
+        this.idPais = idPais;
+        this.nombre = nombre;
+        this.capital = capital;
+    }
+
+    public int getIdPais() {
+        return idPais;
+    }
+
+    public void setIdPais(int idPais) {
+        this.idPais = idPais;
     }
 
     public String getNombre() {
@@ -32,9 +44,9 @@ public class Pais {
         this.capital = capital;
     }
 
-    @Override
+  @Override
     public String toString() {
-        return "---Pais---{" + "nombre=" + nombre + ", capital=" + capital + '}';
+        return "---Pais---{" + "id_pais=" + idPais + ", nombre=" + nombre + ", capital=" + capital + '}';
     }
 
    

@@ -1,5 +1,4 @@
 package Vista;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -74,14 +73,24 @@ public class Main {
 //        pa1.insertarPais(p);
                 
        
+     PaisControlador controlador = new PaisControlador();
+//        controlador.imprimirPaises();
 
+        java.sql.Connection conectado = (java.sql.Connection) prueba.conectar();
 
+      Pais nuevoPais = new Pais(2, "Argentina", "Buenos Aires");
+        controlador.insertarPais(conectado, nuevoPais);
+        
+        Pais p = new Pais(1, "Ecuador", "Quito");
+        controlador.actualizarPais(conectado, p);
 
+    
+        controlador.eliminarPais(conectado, 3);
 
-
-       
-        PaisControlador controlador = new PaisControlador();
+        System.out.println("\n--- DATOS ACTUALES EN LA BASE DE DATOS ---");
         controlador.imprimirPaises();
+        
     }
+    
 }
     
