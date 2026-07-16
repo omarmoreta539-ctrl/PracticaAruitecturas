@@ -4,11 +4,20 @@ package Vista;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 import Controlador.PaisControlador;
+import Controlador.PaisControlador;
 import MODELO.DIreccion;
 import MODELO.Estudiante;
 import MODELO.Pais;
+import MODELO.Pais;
+import MODELO.Persona;
 import controlador.ConexionBDD;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author AMARU
@@ -61,36 +70,92 @@ public class Main {
 //        e.setDireccion(dir);
 //        JOptionPane.showMessageDialog(null, e.toString());
 //        System.out.println(e.toString());
-        
+//        
         ConexionBDD  prueba=new ConexionBDD();
         prueba.conectar();
         
-//        Pais p = new Pais();
-//        p.setCapital(JOptionPane.showInputDialog("Ingrese el capital del pais"));
-//        p.setNombre(JOptionPane.showInputDialog("Ingrese el nombbre de la capital"));
 //        
-//      PaisControlador pa1=new PaisControlador();
-//        pa1.insertarPais(p);
-                
-       
-     PaisControlador controlador = new PaisControlador();
+        
+
+//        
+//        PaisControlador pal = new PaisControlador();
+//        Pais p = new Pais("Urcuqui", "Urcuyork");
+//        System.out.println("=== Insertando país ===");
+//        pal.insertarPais(p);
+//        
+//    }
+//}
+//                
+//       
+//     PaisControlador controlador = new PaisControlador();
 //        controlador.imprimirPaises();
+//        System.out.println("=== lista de paises ===");
+//        prueba.conectar();  
+//        System.out.println("=== cierre de lista===");
+//    }
+//}
+//
+//      PaisControlador controlador = new PaisControlador();
+//        Pais p = new Pais( "Urcuqui", "Costa");
+//        System.out.println("=== Iniciando actualización ===");
+//        controlador.actualizarPais(p);
+//        
+//    }
+//}  
+//
+PaisControlador controlador = new PaisControlador();
+Pais paisAEliminar = new Pais( "Urcuqui", "");
+controlador.eliminarPais(paisAEliminar);
 
-        java.sql.Connection conectado = (java.sql.Connection) prueba.conectar();
-
-      Pais nuevoPais = new Pais(2, "Argentina", "Buenos Aires");
-        controlador.insertarPais(conectado, nuevoPais);
-        
-        Pais p = new Pais(1, "Ecuador", "Quito");
-        controlador.actualizarPais(conectado, p);
-
-    
-        controlador.eliminarPais(conectado, 3);
-
-        System.out.println("\n--- DATOS ACTUALES EN LA BASE DE DATOS ---");
-        controlador.imprimirPaises();
-        
+System.out.println("\n--- Se a eliminado el pais ---");
+controlador.imprimirPaises();
     }
-    
 }
+
+////
+///
+///
+///append concatena hasta el final
+///fichero un archivo aexportar con file
+///directorio es una carpeta 
+///  //UPCASTING : CREAR UN OBJETO (PADRE)
+        //USANDO LOS CONSTRUCTOR SU (HIJO) O SUBCLASE
+//        Persona maria=new Estudiante();
+//        maria.setNombre("María");
+//        maria.setApellido("Correa");
+//        maria.setCedula(1002003001);
+//        
+//        
+//        //DOWNCASTING
+//        //Transformar o cambiar el tipo de Objeto
+//        //del Padre al Hijo conservando sus comportamientos
+//        Estudiante eMaria=(Estudiante)maria;
+//        eMaria.setIdEstudiante(100);
+//        System.out.println(eMaria.getIdEstudiante()+"\n"+eMaria.getNombre()+" "+eMaria.getApellido()+eMaria.getCedula());
+//        
+//    }
+//    
+//}
+//    public class file {
+//    public static void main(String[] args) throws IOException {
+//        try {
+//            FileWriter writer=new FileWriter("mi archivo.txt");
+//            writer.write("Hola");
+//            writer.close();
+////            
+//            FileReader reader=new FileReader("mi archivo.txt");
+//            BufferedReader bufferedReader=new BufferedReader(reader);
+//            String linea;
+//            while((linea=bufferedReader.readLine())!=null){
+//                System.out.println(linea);
+//            }
+//            bufferedReader.close();
+//            reader.close();
+//        } catch (IOException e) {
+//            System.out.println("Error al manejar el fichero"+e.getMessage());
+//        }
+//    }
+// }
+//   }  
+
     

@@ -14,11 +14,14 @@ public class Pais {
     private String nombre;
     private String capital;
 
-    public Pais(int idPais, String nombre, String capital) {
+    public Pais(String nombre, String capital) {
         this.idPais = idPais;
         this.nombre = nombre;
         this.capital = capital;
     }
+
+    public Pais() {
+            }
 
     public int getIdPais() {
         return idPais;
