@@ -22,35 +22,42 @@ import javax.swing.JOptionPane;
  * @author AMARU
  */
 public class Pdf {
-
-    private void btnPDFActionPerformed(String contenido) {//GEN-FIRST:event_btnPDFActionPerformed
-
+    
+    // Tu método original intacto, solo recibe el "contenido" y el "nombreArchivo" para no pisarse
+    public void btnPDFActionPerformed(String contenido, String nombreArchivo) {
+        
         Document document = new Document();
-
+        
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("formularioPostulante"  + ".pdf"));
+            // Estructura idéntica de la foto, solo que usa el nombre del archivo dinámico
+            PdfWriter.getInstance(document, new FileOutputStream(nombreArchivo + ".pdf"));
             document.open();
+            
             // Establecer márgenes
             document.setMargins(50, 50, 50, 50);
-
-            // Establecer tamaño de página
+            
+            // Establecer tamaño de págin
             document.setPageSize(PageSize.A4);
-            // Crear una fuente con estilo y tamaño específicos
+            
+            // Crear una fuente con estilo y tamaño específicos (Azul para el título)
             Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 14, BaseColor.BLUE);
-
+            
             // Crear un párrafo con la fuente especificada
-            Paragraph paragraph = new Paragraph("REPORTE FORMULARIO POSTULANTES", font);
+            Paragraph paragraph = new Paragraph("REPORTE DE PAISES", font);
             paragraph.setAlignment(Element.ALIGN_CENTER);
             document.add(paragraph);
+            
             Font font1 = FontFactory.getFont(FontFactory.HELVETICA, 12, BaseColor.DARK_GRAY);
-            // Añadir espaciado antes del párrafo
+            
+            // Añadir espaciado antes del párrafo y añadir el contenido que le enviemos
             Paragraph paragraph1 = new Paragraph(contenido, font1);
             paragraph1.setSpacingBefore(10);
             paragraph1.setAlignment(Element.ALIGN_LEFT);
             document.add(paragraph1);
-
+            
             document.close();
-            JOptionPane.showMessageDialog(null, "PDF generado correctamente.");
+            JOptionPane.showMessageDialog(null, "PDF generado correctamente yes");
+            
         } catch (DocumentException | IOException e) {
             JOptionPane.showMessageDialog(null, "Error al generar el PDF: " + e.getMessage());
         }

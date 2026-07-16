@@ -6,13 +6,14 @@ package Vista;
 
 import Controlador.PaisControlador;
 import MODELO.Pais;
+import java.util.ArrayList;
 
 /**
  *
  * @author AMARU
  */
 public class PaisVista extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PaisVista.class.getName());
 
     /**
@@ -32,80 +33,98 @@ public class PaisVista extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitulo = new javax.swing.JLabel();
-        lblId = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         lblCapital = new javax.swing.JLabel();
-        lblValorId = new javax.swing.JLabel();
         txtCapital = new javax.swing.JTextField();
         txtNombre1 = new javax.swing.JTextField();
         btnCrear = new javax.swing.JButton();
+        btnActualizarPais = new javax.swing.JButton();
+        btnEliminar1 = new javax.swing.JButton();
+        btnPdf = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTitulo.setText("GESTION DE PAISES");
-
-        lblId.setText("id");
+        lblTitulo.setBackground(new java.awt.Color(102, 102, 255));
+        lblTitulo.setForeground(new java.awt.Color(255, 102, 102));
+        lblTitulo.setText("🌎 GESTION DE PAISES ");
 
         lblNombre.setText("Nombre");
 
         lblCapital.setText("Capital");
 
-        lblValorId.setText("001");
-
         txtCapital.addActionListener(this::txtCapitalActionPerformed);
 
-        btnCrear.setText("CREAR");
+        btnCrear.setBackground(new java.awt.Color(255, 102, 51));
+        btnCrear.setForeground(new java.awt.Color(204, 204, 255));
+        btnCrear.setText("CREAR 📥");
         btnCrear.addActionListener(this::btnCrearActionPerformed);
+
+        btnActualizarPais.setBackground(new java.awt.Color(255, 102, 51));
+        btnActualizarPais.setText("ACTUALIZAR");
+        btnActualizarPais.addActionListener(this::btnActualizarPaisActionPerformed);
+
+        btnEliminar1.setBackground(new java.awt.Color(255, 102, 51));
+        btnEliminar1.setText("ELIMINAR 🗑️");
+        btnEliminar1.addActionListener(this::btnEliminar1ActionPerformed);
+
+        btnPdf.setBackground(new java.awt.Color(153, 153, 255));
+        btnPdf.setText("PDF");
+        btnPdf.addActionListener(this::btnPdfActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitulo)
-                .addGap(141, 141, 141))
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnCrear)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombre)
-                    .addComponent(lblId)
-                    .addComponent(lblCapital))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCapital)
+                            .addComponent(lblNombre)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblValorId, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(163, 163, 163))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtCapital, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(67, 67, 67))))
+                        .addGap(67, 67, 67))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(btnActualizarPais)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPdf, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitulo)
+                .addGap(158, 158, 158))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitulo)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblId)
-                    .addComponent(lblValorId))
-                .addGap(26, 26, 26)
+                    .addComponent(btnCrear)
+                    .addComponent(btnActualizarPais)
+                    .addComponent(btnEliminar1)
+                    .addComponent(btnPdf))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCapital)
                     .addComponent(txtCapital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btnCrear)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         pack();
@@ -117,12 +136,98 @@ public class PaisVista extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
-        Pais p = new Pais();
-        p.setNombre(txtNombre1.getText());
-        p.setCapital(txtCapital.getText());
-        PaisControlador pc = new PaisControlador();
-        pc.insertarPais(p);
+
+        String nombre = txtNombre1.getText();
+        String capital = txtCapital.getText();
+
+        if (nombre.isEmpty() || capital.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos antes de crear.");
+        } else {
+            Pais p = new Pais();
+            p.setNombre(nombre);
+            p.setCapital(capital);
+            PaisControlador pc = new PaisControlador();
+            pc.insertarPais(p);
+            txtNombre1.setText("");
+            txtCapital.setText("");
+
+            listarPaises();
+        }
+
+
     }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void btnActualizarPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarPaisActionPerformed
+        // TODO add your handling code here:                                       
+        String nombreActualizar = javax.swing.JOptionPane.showInputDialog(null, "Ingrese el NOMBRE del país que desea actualizar:");
+        String nuevaCapital = javax.swing.JOptionPane.showInputDialog(null, "Ingrese la NUEVA CAPITAL para este país:");
+
+        Pais p = new Pais();
+        p.setNombre(nombreActualizar);
+        p.setCapital(nuevaCapital);
+        PaisControlador pc = new PaisControlador();
+        pc.actualizarPais(p);
+        javax.swing.JOptionPane.showMessageDialog(null, "Proceso de actualización finalizado.");
+        listarPaises();
+    }//GEN-LAST:event_btnActualizarPaisActionPerformed
+
+
+    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
+        // TODO add your handling code here:
+        String nombreEliminar = javax.swing.JOptionPane.showInputDialog(null, "Ingrese el NOMBRE del país que desea eliminar:");
+        Pais p = new Pais();
+        p.setNombre(nombreEliminar);
+        PaisControlador pc = new PaisControlador();
+        pc.eliminarPais(p);
+        javax.swing.JOptionPane.showMessageDialog(null, "Proceso de eliminación finalizado.");
+        listarPaises();
+
+    }//GEN-LAST:event_btnEliminar1ActionPerformed
+
+    private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
+        // TODO add your handling code here:
+        PaisControlador pc = new PaisControlador();
+        ArrayList<String[]> paises = pc.obtenerPaises();
+
+        String contenido = "\n============================================\n"
+                + "         REPORTE GENERAL DE PAÍSES          \n"
+                + "============================================\n"
+                + "Detalle: Reporte solicitado por el usuario\n"
+                + "============================================\n\n"
+                + "ID\t\tPAÍS\t\tCAPITAL\n"
+                + "--------------------------------------------\n";
+
+        for (int i = 0; i < paises.size(); i++) {
+            String id = paises.get(i)[0];
+            String nombre = paises.get(i)[1];
+            String capital = paises.get(i)[2];
+            contenido = contenido + id + "\t\t" + nombre + "\t\t" + capital + "\n";
+        }
+
+        contenido = contenido + "--------------------------------------------\n"
+                + "Total de registros: " + paises.size() + "\n"
+                + "============================================\n";
+
+        Pdf reporte = new Pdf();
+        reporte.btnPDFActionPerformed(contenido, "Reporte_General_Paises");
+    }//GEN-LAST:event_btnPdfActionPerformed
+
+    public void listarPaises() {
+        PaisControlador pc = new PaisControlador();
+        java.util.ArrayList<String[]> lista = pc.obtenerPaises();
+
+        String texto = "=== 📑 Lista de Paises .. ===\n\n";
+
+        for (int i = 0; i < lista.size(); i++) {
+            String id = lista.get(i)[0];
+            String nombre = lista.get(i)[1];
+            String capital = lista.get(i)[2];
+
+            texto += id + " - " + nombre + " - " + capital + "\n";
+        }
+
+        javax.swing.JOptionPane.showMessageDialog(null, texto);
+    }
 
     /**
      * @param args the command line arguments
@@ -150,12 +255,13 @@ public class PaisVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarPais;
     private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btnEliminar1;
+    private javax.swing.JButton btnPdf;
     private javax.swing.JLabel lblCapital;
-    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblValorId;
     private javax.swing.JTextField txtCapital;
     private javax.swing.JTextField txtNombre1;
     // End of variables declaration//GEN-END:variables

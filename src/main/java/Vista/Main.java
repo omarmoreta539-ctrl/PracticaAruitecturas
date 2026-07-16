@@ -78,13 +78,13 @@ public class Main {
         
 
 //        
-//        PaisControlador pal = new PaisControlador();
-//        Pais p = new Pais("Urcuqui", "Urcuyork");
-//        System.out.println("=== Insertando país ===");
-//        pal.insertarPais(p);
-//        
-//    }
-//}
+        PaisControlador pal = new PaisControlador();
+        Pais p = new Pais("Urcuqui", "Urcuyork");
+        System.out.println("=== Insertando país ===");
+        pal.insertarPais(p);
+        
+    }
+}
 //                
 //       
 //     PaisControlador controlador = new PaisControlador();
@@ -103,14 +103,14 @@ public class Main {
 //    }
 //}  
 //
-PaisControlador controlador = new PaisControlador();
-Pais paisAEliminar = new Pais( "Urcuqui", "");
-controlador.eliminarPais(paisAEliminar);
-
-System.out.println("\n--- Se a eliminado el pais ---");
-controlador.imprimirPaises();
-    }
-}
+//PaisControlador controlador = new PaisControlador();
+//Pais paisAEliminar = new Pais( "Urcuqui", "");
+//controlador.eliminarPais(paisAEliminar);
+//
+//System.out.println("\n--- Se a eliminado el pais ---");
+//controlador.imprimirPaises();
+//    }
+//}
 
 ////
 ///
@@ -136,7 +136,7 @@ controlador.imprimirPaises();
 //    }
 //    
 //}
-//    public class file {
+
 //    public static void main(String[] args) throws IOException {
 //        try {
 //            FileWriter writer=new FileWriter("mi archivo.txt");
@@ -156,6 +156,8 @@ controlador.imprimirPaises();
 //        }
 //    }
 // }
-//   }  
+//    }
+    
+   
 
     
